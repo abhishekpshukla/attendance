@@ -15,8 +15,9 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem "haml", :lib => false, :version => "2.2.16"
-  config.gem "hpricot", :lib => false, :version => "0.8.2"
+  config.gem "uuidtools", :lib => false, :version => "2.0.0"
+  config.gem "haml",      :lib => false, :version => "2.2.16"
+  config.gem "hpricot",   :lib => false, :version => "0.8.2"
 
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -37,4 +38,5 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+    config.action_controller.session_store = :active_record_store
 end

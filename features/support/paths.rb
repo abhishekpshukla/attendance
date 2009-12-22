@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the admin login page/
       admin_login_path
+    when /the add employee page/
+      admin_add_employee_path
     
     # Add more mappings here.
     # Here is a more fancy example:

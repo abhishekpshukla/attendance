@@ -1,8 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
+    admin.add_employee 'add_employee', :controller => :users, :action => :new
+    admin.resources :employees, :controller => :users
+    admin.resource :user
+    admin.resource :user_session
+    admin.resource :dashboard
     admin.login "login", :controller => :user_sessions, :action => :new
   end
+
+  map.resource :user_session
 
   # The priority is based upon order of creation: first created -> highest priority.
 

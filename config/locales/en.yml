@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+
+  admin:
+    user_session:
+      login_successful: "Login successful!"
+    
