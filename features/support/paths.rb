@@ -10,6 +10,8 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the admin login page/
+      admin_login_path
     
     # Add more mappings here.
     # Here is a more fancy example:

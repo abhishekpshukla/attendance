@@ -16,6 +16,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem "haml", :lib => false, :version => "2.2.16"
+  config.gem "hpricot", :lib => false, :version => "0.8.2"
 
 
   # Only load the plugins named here, in the order given (default is alphabetical).

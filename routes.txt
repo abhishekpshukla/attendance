@@ -1,0 +1,4 @@
+(in /home/abhishek/Documents/projects/www/mysite/attendance)
+admin_login  /admin/login                       {:action=>"new", :controller=>"admin/user_sessions"}
+             /:controller/:action/:id           
+             /:controller/:action/:id(.:format) 
