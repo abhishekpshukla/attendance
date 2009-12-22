@@ -26,3 +26,12 @@ config.action_mailer.delivery_method = :test
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+
+#THE FOLLOWING GEMS NEED TO BE INSTALLED
+config.gem "cucumber", :lib => false, :version => "0.3.101"
+config.gem "rspec", :lib => false, :version => "1.2.9"
+config.gem "rspec-rails", :lib => false, :version => "1.2.9"
+config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+config.gem 'bmabey-email_spec', :lib => 'email_spec',   :version => '>=0.3.4', :source => 'http://gemcutter.org'
+config.gem "remarkable_rails", :lib => false, :version => ">=3.1.11"
+config.gem "ruby-prof", :lib => false, :version => ">=0.6.1"
