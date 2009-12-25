@@ -3,10 +3,12 @@
 
 en:
   hello: "Hello world"
+  
+  user_session:
+      login_success: "Login successful!"
+      logout_success: "logout successful!"
 
   admin:
-    user_session:
-      login_successful: "Login successful!"
     user:
       employee_add: "New employee added successfull"
     

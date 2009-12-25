@@ -11,7 +11,7 @@ module NavigationHelpers
     when /the homepage/
       '/'
     when /the admin login page/
-      admin_login_path
+      login_path
     when /the add employee page/
       admin_add_employee_path
     

@@ -4,7 +4,7 @@ Feature: As a new employee
 Scenario: Add a new employee
     Given I as a admin
     And I have a list of designation
-    When I follow "Add Employee"
+    When I go to the add employee page
     And I fill in "First Name" with "Abhishek"
     And I fill in "Middle Name" with "Pradeep"
     And I fill in "Last Name" with "Shukla"

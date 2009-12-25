@@ -26,7 +26,7 @@
             %li#current
               = link_to "Home"
             %li
-              = link_to "News"
+              = link_to "Add Employee"
             %li
               = link_to "Download"
             %li
@@ -42,15 +42,13 @@
             Sidebar Menu
           %ul.sidemenu
             %li
-              = link_to "Home"
+              = link_to "Home", account_path
             %li
-              = link_to "News"
-            %li
-              = link_to "Download"
-            %li
-              = link_to "Support"
+              = link_to "Add Employee", admin_add_employee_path
             %li
               = link_to "About"
+            %li
+              = link_to "Credits"
 
           %h1
             Site Partners
@@ -90,21 +88,7 @@
             on my website - it will
             be a great help and will surely be appreciated.
 
-        #main
-          %a{ :name => "TemplateInfo" }
-          .box
-            %h1
-              Template
-              %span.gray
-                Info
-
-
-
-
-
-
-
-
+        = yield
 
     #footer-wrap
       .footer-left

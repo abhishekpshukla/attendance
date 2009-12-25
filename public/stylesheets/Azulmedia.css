@@ -136,7 +136,7 @@ input.button {
 	border: none;
 	margin: 0; padding: 0;
 }
-.searchform input.textbox { 
+.searchform input.textbox {
 	margin: 0; 
 	width: 145px;
 	border: 1px solid #777; 
@@ -145,6 +145,7 @@ input.button {
 	height: 14px;
 	vertical-align: top;
 }
+
 .searchform input.button { 
 	margin: 0; 
 	padding: 2px 3px; 
@@ -156,6 +157,20 @@ input.button {
 	vertical-align: top;
 }
 
+.new_user form{
+	background-color: transparent;
+	border: none;
+	margin: 0; padding: 0;
+}
+
+.new_user input.textbox {
+	margin: 0;
+	width: 230px;
+	border: 1px solid #777;
+	background: #FFF;
+	color: #333;
+	vertical-align: top;
+}
 /***********************
 	  LAYOUT
 ************************/

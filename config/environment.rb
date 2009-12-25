@@ -42,3 +42,5 @@ Rails::Initializer.run do |config|
     config.action_controller.session_store = :active_record_store
 end
 require 'country_select'
+ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|
+"<span class=\"fieldWithErrors\">#{html_tag}</span>" }

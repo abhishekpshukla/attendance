@@ -9,5 +9,5 @@ Given /^I as a admin$/ do
 end
 
 Given /^I should be logged in$/ do
-  And "I should see \"Login successful!\""
+  And "I should see \"Home\""
 end

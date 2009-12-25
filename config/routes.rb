@@ -6,10 +6,12 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :user
     admin.resource :user_session
     admin.resource :dashboard
-    admin.login "login", :controller => :user_sessions, :action => :new
-
   end
 
+  map.resource :user_session
+  map.login '/login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy', :conditions => { :method => [:get, :delete] }
+  
   map.resource :account, :controller => "admin/dashboards"
   map.resource :user_session
 
