@@ -7,7 +7,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: new_attendance_development
+  database: new_attendance_2009_development
   pool: 5
   username: root
   password: root
@@ -19,7 +19,7 @@ test: &TEST
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: new_attendance_test
+  database: new_attendance_2009_test
   pool: 5
   username: root
   password: root
@@ -28,7 +28,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: new_attendance_production
+  database: new_attendance_2009_production
   pool: 5
   username: root
   password: root

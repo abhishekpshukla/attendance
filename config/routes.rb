@@ -7,8 +7,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :user_session
     admin.resource :dashboard
     admin.login "login", :controller => :user_sessions, :action => :new
+
   end
 
+  map.resource :account, :controller => "admin/dashboards"
   map.resource :user_session
 
   map.root :controller => "admin/user_sessions", :action => :new
