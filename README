@@ -20,9 +20,11 @@ GEMS
 6. remarkable_rails,    version => 3.1.11
 7. ruby-prof,           version => 0.6.1
 
+
 PLUGINS
 ===================
 1. Authlogic
 2. Will-paginate
 3. jRail
 4. Country_select
+5. resource_controller

@@ -39,19 +39,17 @@
       #content-wrap
         #sidebar
           %h1.clear
-            Sidebar Menu
           %ul.sidemenu
             %li
               = link_to "Home", account_path
             %li
               = link_to "Add Employee", admin_add_employee_path
             %li
-              = link_to "About"
+              = link_to "Employess", admin_employees_path
             %li
               = link_to "Credits"
 
           %h1
-            Site Partners
           %ul.sidemenu
             %li
               = link_to "Home"
@@ -80,15 +78,8 @@
           %p.align-right
             \- John Maxwell
 
-          %h1
-            Support Styleshout
-          %p
-            If you are interested in supporting my work and would like to contribute, you are welcome to make a small donation through the
-            %a{ :href => "http://www.styleshout.com/" }donate link
-            on my website - it will
-            be a great help and will surely be appreciated.
-
-        = yield
+        #main
+          = yield
 
     #footer-wrap
       .footer-left
