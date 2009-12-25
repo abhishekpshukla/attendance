@@ -11,6 +11,8 @@
     = javascript_include_tag :defaults
     = stylesheet_link_tag "Azulmedia"
   %body
+    /
+      wrap starts here
     #wrap
       #header
         %h1#logo
@@ -21,7 +23,25 @@
         %h2{:id => "slogan"}Something here
         #menu
           %ul
-            %li{:id => "current"}
+            %li#current
+              = link_to "Home"
+            %li
+              = link_to "News"
+            %li
+              = link_to "Download"
+            %li
+              = link_to "Support"
+            %li
+              = link_to "Logout", admin_user_session_path, {:method => :delete}
+
+      /
+        content-wrap starts here
+      #content-wrap
+        #sidebar
+          %h1.clear
+            Sidebar Menu
+          %ul.sidemenu
+            %li
               = link_to "Home"
             %li
               = link_to "News"
@@ -31,6 +51,60 @@
               = link_to "Support"
             %li
               = link_to "About"
+
+          %h1
+            Site Partners
+          %ul.sidemenu
+            %li
+              = link_to "Home"
+            %li
+              = link_to "News"
+            %li
+              = link_to "Download"
+            %li
+              = link_to "Support"
+            %li
+              = link_to "About"
+
+          %h1
+            Search
+          .searchform
+            %form{ :action => "#" }
+              %p
+                %input.textbox{ :name => "search_query", :type => "text" }
+                %input.button{ :name => "search", :value => "Search", :type => "submit" }
+
+          %h1
+            Wise Words
+          %p
+            \&quot;The happiest people are those who invested their time in others. The unhappiest people are those who wonder how the world is going to make them happy&quot;
+
+          %p.align-right
+            \- John Maxwell
+
+          %h1
+            Support Styleshout
+          %p
+            If you are interested in supporting my work and would like to contribute, you are welcome to make a small donation through the
+            %a{ :href => "http://www.styleshout.com/" }donate link
+            on my website - it will
+            be a great help and will surely be appreciated.
+
+        #main
+          %a{ :name => "TemplateInfo" }
+          .box
+            %h1
+              Template
+              %span.gray
+                Info
+
+
+
+
+
+
+
+
 
     #footer-wrap
       .footer-left

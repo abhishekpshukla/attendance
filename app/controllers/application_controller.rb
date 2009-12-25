@@ -5,7 +5,17 @@ class ApplicationController < ActionController::Base
   helper :all
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
+  
+  layout :admin_layout
 
+  def admin_layout
+    if current_user.nil?
+      "guest_layout"
+    elsif current_user.is_admin?
+      "application"
+    end
+  end
+  
   private
 
     def is_admin?
