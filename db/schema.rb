@@ -9,7 +9,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091222185658) do
+ActiveRecord::Schema.define(:version => 20091225042545) do
+
+  create_table "addresses", :id => false, :force => true do |t|
+    t.string   "id",             :limit => 36,  :null => false
+    t.string   "user_detail_id", :limit => 36,  :null => false
+    t.string   "address1",                      :null => false
+    t.string   "address2"
+    t.string   "city",           :limit => 150, :null => false
+    t.string   "state",          :limit => 150, :null => false
+    t.string   "country",        :limit => 150, :null => false
+    t.string   "zip_code",       :limit => 50,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["address1"], :name => "index_addresses_on_address1"
+  add_index "addresses", ["city"], :name => "index_addresses_on_city"
+  add_index "addresses", ["country"], :name => "index_addresses_on_country"
+  add_index "addresses", ["state"], :name => "index_addresses_on_state"
+  add_index "addresses", ["user_detail_id"], :name => "index_addresses_on_user_detail_id"
+  add_index "addresses", ["zip_code"], :name => "index_addresses_on_zip_code"
+
+  create_table "designations", :force => true do |t|
+    t.string   "name",        :limit => 100, :null => false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "designations", ["name"], :name => "index_designations_on_name"
+
+  create_table "phones", :id => false, :force => true do |t|
+    t.string   "id",             :limit => 36,  :null => false
+    t.string   "user_detail_id", :limit => 36,  :null => false
+    t.string   "mobile",         :limit => 100, :null => false
+    t.string   "home",           :limit => 100
+    t.string   "fax",            :limit => 100
+    t.string   "office",         :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phones", ["fax"], :name => "index_phones_on_fax"
+  add_index "phones", ["home"], :name => "index_phones_on_home"
+  add_index "phones", ["mobile"], :name => "index_phones_on_mobile"
+  add_index "phones", ["office"], :name => "index_phones_on_office"
+  add_index "phones", ["user_detail_id"], :name => "index_phones_on_user_detail_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -20,6 +66,28 @@ ActiveRecord::Schema.define(:version => 20091222185658) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "user_details", :id => false, :force => true do |t|
+    t.string   "id",                :limit => 36, :null => false
+    t.string   "user_id",           :limit => 36, :null => false
+    t.integer  "designation_id",                  :null => false
+    t.string   "first_name",        :limit => 75, :null => false
+    t.string   "middle_name",       :limit => 75
+    t.string   "last_name",         :limit => 75, :null => false
+    t.date     "date_of_joining",                 :null => false
+    t.date     "date_of_birth",                   :null => false
+    t.string   "gender"
+    t.string   "alternative_email"
+    t.string   "nationality",       :limit => 75
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_details", ["alternative_email"], :name => "index_user_details_on_alternative_email"
+  add_index "user_details", ["designation_id"], :name => "index_user_details_on_designation_id"
+  add_index "user_details", ["first_name"], :name => "index_user_details_on_first_name"
+  add_index "user_details", ["last_name"], :name => "index_user_details_on_last_name"
+  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id"
 
   create_table "users", :id => false, :force => true do |t|
     t.string   "id",                  :limit => 36,                    :null => false
@@ -38,6 +106,8 @@ ActiveRecord::Schema.define(:version => 20091222185658) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.boolean  "voided",                            :default => false
+    t.text     "voided_reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

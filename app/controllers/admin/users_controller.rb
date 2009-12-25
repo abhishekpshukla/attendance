@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :is_admin?
 
   def index
-    @employees = User.all
+    @employees = User.find_all_user_except_admin
     respond_to do |format|
       format.html {}
       format.js {}
@@ -19,6 +19,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save_without_session_maintenance
+         flash[:notice] = t("admin.user.employee_add")
         format.html { redirect_to admin_employees_path }
         format.xml { render :xml => @user }
       else

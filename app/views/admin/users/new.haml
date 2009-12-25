@@ -1,5 +1,74 @@
 - form_for @user, :url => admin_employees_path do |f|
   %p
+    = error_messages_for "user"
+  - f.fields_for :user_detail_attributes do |user_detail|
+    %p
+      = user_detail.label :first_name
+    %p
+      = user_detail.text_field :first_name
+    %p
+      = user_detail.label :middle_name
+    %p
+      = user_detail.text_field :middle_name
+    %p
+      = user_detail.label :last_name
+    %p
+      = user_detail.text_field :last_name
+    %p
+      = user_detail.label "designation_id"
+    %p
+      = user_detail.select :designation_id, Designation.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}
+    %p
+      = user_detail.label :date_of_joining
+    %p
+      = user_detail.text_field :date_of_joining
+    %p
+      = user_detail.label :date_of_birth
+    %p
+      = user_detail.text_field :date_of_birth
+    %p
+      = user_detail.label :gender
+    %p
+      = user_detail.select :gender,  %w[Male Female]
+    - user_detail.fields_for :address_attributes do |address|
+      %p
+        = address.label :address1
+      %p
+        = address.text_field :address1
+      %p
+        = address.label :address2
+      %p
+        = address.text_field :address2
+      %p
+        = address.label :city
+      %p
+        = address.text_field :city
+      %p
+        = address.label :state
+      %p
+        = address.text_field :state
+      %p
+        = address.label :country
+      %p
+        = address.country_select :country
+      %p
+        = address.label :zip_code
+      %p
+        = address.text_field :zip_code
+    - user_detail.fields_for :phone_attributes do |phone|
+      %p
+        = phone.label :mobile, "Mobile No."
+      %p
+        = phone.text_field :mobile
+      %p
+        = phone.label :home, "Home No."
+      %p
+        = phone.text_field :home
+      %p
+        = phone.label :office, "Office No."
+      %p
+        = phone.text_field :office
+  %p
     = f.label :login
   %p
     = f.text_field :login
