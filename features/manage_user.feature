@@ -26,5 +26,4 @@ Scenario: Add a new employee
     And I fill in "password" with "secret"
     And I fill in "password confirmation" with "secret"
     And I press "Register"
-    And I should see "New employee added successfull"
     And I should see "Abhishek Pradeep Shukla"
