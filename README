@@ -6,7 +6,7 @@ ENVIRONMENT
 ===================
 1. Ruby 1.8.7
 2. Ruby on Rails 2.3.5
-3. SQLite
+3. MySQL
 4. HAML & SASS
 
 
@@ -25,3 +25,4 @@ PLUGINS
 1. Authlogic
 2. Will-paginate
 3. jRail
+4. Country_select
