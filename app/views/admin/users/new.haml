@@ -1,4 +1,17 @@
+= stylesheet_link_tag "jquery/dot-luv/ui.all"
+= javascript_include_tag "jquery/ui.datepicker"
+%script
+  $(function() {
+  $("#user_user_detail_attributes_date_of_joining").datepicker({
+  changeMonth: true,
+  changeYear: true
+  });
 
+  $("#user_user_detail_attributes_date_of_birth").datepicker({
+  changeMonth: true,
+  changeYear: true
+  });
+  });
 %h2 Add Employee
 - form_for @user, :url => admin_employees_path(:anchor => "info") do |f|
   %div
