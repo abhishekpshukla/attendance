@@ -1,5 +1,12 @@
 = flash[:notice]
+.box
+  %h1
+    Employee 
+    %span.gray
+      List
 - for employee in @employees
   - employee_detail = employee.user_detail
-  %p
-    = link_to employee_detail.first_name + " " + employee_detail.middle_name + " " + employee_detail.last_name, admin_employee_path(employee_detail)
+  %ul
+    %li
+      %p
+        = link_to employee_detail.first_name + " " + employee_detail.middle_name + " " + employee_detail.last_name, admin_employee_path(employee.id)

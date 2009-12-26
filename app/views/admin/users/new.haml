@@ -32,7 +32,7 @@
     %p
       = user_detail.label "designation_id"
     %p
-      = user_detail.select :designation_id, Designation.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None', :class => "textbox"}
+      = user_detail.select :designation_id, Designation.all.collect {|p| [ p.name, p.id ] }, {:class => "textbox"}
     %p
       = user_detail.label :date_of_joining
     %p

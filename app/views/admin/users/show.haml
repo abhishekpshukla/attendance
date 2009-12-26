@@ -1,0 +1,30 @@
+- user_detail = @employee.user_detail
+.box
+  %h1
+    = user_detail.first_name
+    %span.gray
+      = user_detail.last_name
+  %p
+    %table{ :cellspacing => 0, :cellpadding => 0, :border => 0, :width => "100%" }
+      %tr
+        %td{ :width => "15%" }
+          %h5
+            Full Name:
+        %td
+          %h6
+            = user_detail.first_name + " " + user_detail.last_name + " " + user_detail.last_name
+      %tr
+        %td
+          %h5
+            Designation:
+        %td
+          %h6
+            = user_detail.designation.name
+      %tr
+        %td
+          %h5
+            Address1:
+        %td
+          %h6
+            = user_detail.address.address1
+      

@@ -28,3 +28,5 @@ PLUGINS
 3. jRail
 4. Country_select
 5. resource_controller
+6. custom-err-msg
+
