@@ -1,18 +1,18 @@
 - user_detail = @employee.user_detail
 .box
   %h1
-    = user_detail.first_name
+    = user_detail.first_name.capitalize
     %span.gray
-      = user_detail.last_name
+      = user_detail.last_name.capitalize
   %p
     %table{ :cellspacing => 0, :cellpadding => 0, :border => 0, :width => "100%" }
       %tr
-        %td{ :width => "15%" }
+        %td{ :width => "20%" }
           %h5
             Full Name:
         %td
           %h6
-            = user_detail.first_name + " " + user_detail.last_name + " " + user_detail.last_name
+            = user_detail.first_name.capitalize + " " + user_detail.last_name + " " + user_detail.last_name.capitalize
       %tr
         %td
           %h5
@@ -23,8 +23,62 @@
       %tr
         %td
           %h5
+            Date of Joining:
+        %td
+          %h6
+            = user_detail.date_of_joining
+      %tr
+        %td
+          %h5
+            Date of Birth:
+        %td
+          %h6
+            = user_detail.date_of_birth
+      %tr
+        %td
+          %h5
+            Gender:
+        %td
+          %h6
+            = user_detail.gender
+      %tr
+        %td{ :style => "vertical-align:top;"}
+          %h5
             Address1:
         %td
           %h6
-            = user_detail.address.address1
+            = user_detail.address.address1 + ","
+            - unless user_detail.address.address2.blank?
+              %br
+              = user_detail.address.address2 + ","
+            %br
+            = user_detail.address.city + ","
+            %br
+            = user_detail.address.state + "."
+            %br
+            = user_detail.address.country + "-" + user_detail.address.zip_code
+      %tr
+        %td
+          %h5
+            Mobile Number:
+        %td
+          %h6
+            = user_detail.phone.mobile
+      %tr
+        %td
+          %h5
+            Home Number:
+        %td
+          %h6
+            = user_detail.phone.home
+      %tr
+        %td{ :colspan => 2 }
+          \&nbsp;
+      %tr
+        %td
+        %td
+          %h6
+            = link_to "edit", edit_admin_employee_path(@employee)
+            |
+            = link_to "back", :back
       
