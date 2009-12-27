@@ -5,12 +5,6 @@ class Admin::UsersController < ApplicationController
   
   create.wants.html { redirect_to admin_employees_path }
 
-  create.after do
-    p "----------"
-    p params
-    p "----------"
-  end
-
   index.before do
     @employees = User.find_all_user_except_admin
   end

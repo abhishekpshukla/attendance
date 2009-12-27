@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20091225042545) do
   create_table "user_details", :id => false, :force => true do |t|
     t.string   "id",                :limit => 36, :null => false
     t.string   "user_id",           :limit => 36, :null => false
+    t.integer  "employee_id",                     :null => false
     t.integer  "designation_id",                  :null => false
     t.string   "first_name",        :limit => 75, :null => false
     t.string   "middle_name",       :limit => 75
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20091225042545) do
 
   add_index "user_details", ["alternative_email"], :name => "index_user_details_on_alternative_email"
   add_index "user_details", ["designation_id"], :name => "index_user_details_on_designation_id"
+  add_index "user_details", ["employee_id"], :name => "index_user_details_on_employee_id"
   add_index "user_details", ["first_name"], :name => "index_user_details_on_first_name"
   add_index "user_details", ["last_name"], :name => "index_user_details_on_last_name"
   add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id"

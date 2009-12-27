@@ -6,7 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-User.create(:login => "admin", :password => "admin", :password_confirmation => "admin", :is_admin => true, :email => "abhishek@example.com")
+user        = User.create(:login => "admin", :password => "admin", :password_confirmation => "admin", :is_admin => true, :email => "abhishek@example.com")
 
 designation = [ "Software Developer", "Team Lead", "Tech Lead",  "System Analyst", "Tech Architect", "Database Architect", "Database Designer",
                 "Project Lead", "Testing Engineer", "Product Manager", "Web Graphic", "Web Designer", "Release Manager", "DBA", "Network Administator",

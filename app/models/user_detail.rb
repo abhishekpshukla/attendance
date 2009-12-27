@@ -14,4 +14,22 @@ class UserDetail < ActiveRecord::Base
   validates_presence_of :last_name, :message => "^Last Name cannot be blank"
   validates_presence_of :date_of_joining, :message => "^Date Of Joining cannot be blank"
   validates_presence_of :date_of_birth, :message => "^Date of Birth cannot be blank"
+
+  before_create :save_employee_id
+
+  private
+
+  def save_employee_id
+    last_employee_id = UserDetail.find(:last)
+    if last_employee_id.nil?
+      # #note: the first 4 id is reservered...
+      self.employee_id = 5
+    else
+      current_employee_id = last_employee_id.employee_id.to_i + 1
+      exists              = UserDetail.find_by_employee_id(current_employee_id)
+      #Just to make sure that the id does not exists
+      save_employee_id if exists.blank? and return
+      self.employee_id = last_employee_id.employee_id.to_i+1
+    end
+  end
 end

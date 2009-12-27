@@ -1,6 +1,7 @@
 Feature: As a new employee
     I as admin should able to add new employee
 
+@focus
 Scenario: Add a new employee
     Given I as a admin
     And I have a list of designation
@@ -28,7 +29,6 @@ Scenario: Add a new employee
     And I press "Register"
     And I should see "Abhishek Pradeep Shukla"
 
-@focus
 Scenario Outline: Not allow admin to add a employee is the value is invalid
     Given I as a admin
     And I have a list of designation
