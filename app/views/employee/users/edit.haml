@@ -1,0 +1,106 @@
+= stylesheet_link_tag "jquery/dot-luv/ui.all"
+= javascript_include_tag "jquery/ui.datepicker"
+%script
+  $(function() {
+  $("#user_user_detail_attributes_date_of_joining").datepicker({
+  changeMonth: true,
+  changeYear: true
+  });
+
+  $("#user_user_detail_attributes_date_of_birth").datepicker({
+  changeMonth: true,
+  changeYear: true
+  });
+  });
+%p
+  = flash[:notice]
+%h2
+  Edit My Profile
+- form_for @user, :url => employee_user_path(:id => @user.id), :html => { :method => 'put' } do |f|
+  %div
+    = error_messages_for "user"
+  - f.fields_for :edit_user_detail_attributes, @user.user_detail do |user_detail|
+    %p
+      = user_detail.label :first_name
+    %p
+      = user_detail.text_field :first_name, {:class => "textbox"}
+    %p
+      = user_detail.label :middle_name
+    %p
+      = user_detail.text_field :middle_name, {:class => "textbox"}
+    %p
+      = user_detail.label :last_name
+    %p
+      = user_detail.text_field :last_name, {:class => "textbox"}
+    %p
+      = user_detail.label "designation_id"
+    %p
+      = user_detail.select :designation_id, Designation.all.collect {|p| [ p.name, p.id ] }, {:class => "textbox"}
+    %p
+      = user_detail.label :date_of_joining
+    %p
+      = user_detail.text_field :date_of_joining, {:class => "textbox"}
+    %p
+      = user_detail.label :date_of_birth
+    %p
+      = user_detail.text_field :date_of_birth, {:class => "textbox"}
+    %p
+      = user_detail.label :gender
+    %p
+      = user_detail.select :gender,  %w[Male Female], {:class => "textbox"}
+    - user_detail.fields_for :edit_user_detail_address_attributes, @user.user_detail.address do |address|
+      %p
+        = address.label :address1
+      %p
+        = address.text_field :address1, {:class => "textbox"}
+      %p
+        = address.label :address2
+      %p
+        = address.text_field :address2, {:class => "textbox"}
+      %p
+        = address.label :city
+      %p
+        = address.text_field :city, {:class => "textbox"}
+      %p
+        = address.label :state
+      %p
+        = address.text_field :state, {:class => "textbox"}
+      %p
+        = address.label :country
+      %p
+        = address.country_select :country, ["India"]
+      %p
+        = address.label :zip_code
+      %p
+        = address.text_field :zip_code, {:class => "textbox"}
+    - user_detail.fields_for :edit_user_detail_phone_attributes, @user.user_detail.phone do |phone|
+      %p
+        = phone.label :mobile, "Mobile No."
+      %p
+        = phone.text_field :mobile, {:class => "textbox"}
+      %p
+        = phone.label :home, "Home No."
+      %p
+        = phone.text_field :home, {:class => "textbox"}
+      %p
+        = phone.label :office, "Office No."
+      %p
+        = phone.text_field :office, {:class => "textbox"}
+  %p
+    = f.label :login
+  %p
+    = f.text_field :login, {:class => "textbox"}
+  %p
+    = f.label :email
+  %p
+    = f.text_field :email, {:class => "textbox"}
+  %p
+    = f.label :password
+  %p
+    = f.password_field :password, {:class => "textbox"}
+  %p
+    = f.label :password_confirmation
+  %p
+    = f.password_field :password_confirmation, {:class => "textbox"}
+  %p
+    = f.submit "Update"

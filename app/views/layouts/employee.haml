@@ -22,11 +22,14 @@
 
         %h2{:id => "slogan"}Something here
         #menu
+          %div{ :style => "text-align:right;"}
+            %h4
+              = "Welcome " + current_user.user_detail.first_name.capitalize + " " + current_user.user_detail.last_name.capitalize
           %ul
             %li#current
               = link_to "Home"
             %li
-              = link_to "Logout", user_session_path, {:method => :delete}
+              = link_to "Logout", admin_user_session_path, {:method => :delete}
 
       /
         content-wrap starts here
@@ -35,34 +38,17 @@
           %h1.clear
           %ul.sidemenu
             %li
-              = link_to "Home", account_path
+              = link_to "Home", employee_dashboard_path
             %li
-              = link_to "Add Employee", admin_add_employee_path
+              = link_to "In/out Time"
             %li
-              = link_to "Employees", admin_employees_path
+              = link_to "My Profile", edit_employee_user_path(:id=>current_user.id)
             %li
               = link_to "News"
             %li
               = link_to "Credits"
-
-          %h1
-            Search
-          .searchform
-            %form{ :action => "#" }
-              %p
-                %input.textbox{ :name => "search_query", :type => "text" }
-                %input.button{ :name => "search", :value => "Search", :type => "submit" }
-
-          %h1
-            Wise Words
-          %p
-            \&quot;The happiest people are those who invested their time in others. The unhappiest people are those who wonder how the world is going to make them happy&quot;
-
-          %p.align-right
-            \- John Maxwell
-
-        #main
-          = yield
+      #main
+        = yield
 
     #footer-wrap
       .footer-left

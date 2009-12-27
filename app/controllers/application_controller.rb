@@ -13,13 +13,18 @@ class ApplicationController < ActionController::Base
       "guest_layout"
     elsif current_user.is_admin?
       "application"
+    else
+      "employee"
     end
   end
   
   private
 
     def is_admin?
-      current_user.is_admin?
+      unless current_user.is_admin?
+        redirect_to employee_dashboard_path
+        return false
+      end
     end
 
     def current_user_session

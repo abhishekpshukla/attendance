@@ -25,6 +25,18 @@ edit_admin_user_session GET       /admin/user_session/edit(.:format)  {:action=>
                         PUT       /admin/dashboard(.:format)          {:action=>"update", :controller=>"admin/dashboards"}
                         DELETE    /admin/dashboard(.:format)          {:action=>"destroy", :controller=>"admin/dashboards"}
                         POST      /admin/dashboard(.:format)          {:action=>"create", :controller=>"admin/dashboards"}
+ new_employee_dashboard GET       /employee/dashboard/new(.:format)   {:action=>"new", :controller=>"employee/dashboards"}
+edit_employee_dashboard GET       /employee/dashboard/edit(.:format)  {:action=>"edit", :controller=>"employee/dashboards"}
+     employee_dashboard GET       /employee/dashboard(.:format)       {:action=>"show", :controller=>"employee/dashboards"}
+                        PUT       /employee/dashboard(.:format)       {:action=>"update", :controller=>"employee/dashboards"}
+                        DELETE    /employee/dashboard(.:format)       {:action=>"destroy", :controller=>"employee/dashboards"}
+                        POST      /employee/dashboard(.:format)       {:action=>"create", :controller=>"employee/dashboards"}
+      new_employee_user GET       /employee/user/new(.:format)        {:action=>"new", :controller=>"employee/users"}
+     edit_employee_user GET       /employee/user/edit(.:format)       {:action=>"edit", :controller=>"employee/users"}
+          employee_user GET       /employee/user(.:format)            {:action=>"show", :controller=>"employee/users"}
+                        PUT       /employee/user(.:format)            {:action=>"update", :controller=>"employee/users"}
+                        DELETE    /employee/user(.:format)            {:action=>"destroy", :controller=>"employee/users"}
+                        POST      /employee/user(.:format)            {:action=>"create", :controller=>"employee/users"}
        new_user_session GET       /user_session/new(.:format)         {:action=>"new", :controller=>"user_sessions"}
       edit_user_session GET       /user_session/edit(.:format)        {:action=>"edit", :controller=>"user_sessions"}
            user_session GET       /user_session(.:format)             {:action=>"show", :controller=>"user_sessions"}

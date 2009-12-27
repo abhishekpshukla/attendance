@@ -17,6 +17,18 @@ class UserDetail < ActiveRecord::Base
 
   before_create :save_employee_id
 
+  # WHILE UPDATING THE USER PROFILE....
+  def edit_user_detail_address_attributes=(address_attribute)
+    address.attributes = address_attribute
+    address.save(false)
+  end
+
+  # WHILE UPDATING THE USER PROFILE....
+  def edit_user_detail_phone_attributes=(phone_attribute)
+    phone.attributes = phone_attribute
+    phone.save(false)
+  end
+
   private
 
   def save_employee_id
@@ -28,7 +40,7 @@ class UserDetail < ActiveRecord::Base
       current_employee_id = last_employee_id.employee_id.to_i + 1
       exists              = UserDetail.find_by_employee_id(current_employee_id)
       #Just to make sure that the id does not exists
-      save_employee_id if exists.blank? and return
+      save_employee_id unless exists.blank? and return
       self.employee_id = last_employee_id.employee_id.to_i+1
     end
   end

@@ -1,7 +1,6 @@
 Feature: As a new employee
     I as admin should able to add new employee
 
-@focus
 Scenario: Add a new employee
     Given I as a admin
     And I have a list of designation

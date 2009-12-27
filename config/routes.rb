@@ -8,6 +8,11 @@ ActionController::Routing::Routes.draw do |map|
     admin.resource :dashboard
   end
 
+  map.namespace :employee do |employee|
+    employee.resource :dashboard
+    employee.resource :user
+  end
+
   map.resource :user_session
   map.login '/login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy', :conditions => { :method => [:get, :delete] }
