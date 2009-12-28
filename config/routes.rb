@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :account, :controller => "admin/dashboards"
   map.resource :user_session
+  map.different_user_signin "/different_user_signin", :controller => :user_sessions, :action => :different_user_signin
 
   map.root :controller => "admin/user_sessions", :action => :new
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,10 +4,20 @@
   %p
     = f.label :login
   %p
-    = f.text_field :login
+    - if cookies[:login].blank?
+      = f.text_field :login
+    - else
+      = f.hidden_field :login, :value => cookies[:login]
+      = cookies[:login]
   %p
     = f.label :password
   %p
     = f.password_field :password
+  %p
+    = f.check_box :remember_me
+    = f.label :remember_me
+  %p
+    - unless cookies[:login].blank?
+      = link_to "Signin as a differnet user", different_user_signin_path
   %p
     = f.submit "login"
