@@ -38,9 +38,6 @@ class UserDetail < ActiveRecord::Base
       self.employee_id = 5
     else
       current_employee_id = last_employee_id.employee_id.to_i + 1
-      exists              = UserDetail.find_by_employee_id(current_employee_id)
-      #Just to make sure that the id does not exists
-      save_employee_id unless exists.blank? and return
       self.employee_id = last_employee_id.employee_id.to_i+1
     end
   end

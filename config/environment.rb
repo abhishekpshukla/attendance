@@ -40,6 +40,9 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
     config.action_controller.session_store = :active_record_store
+
+  # change the default page caching folder i.e.. (RAILS_ROOT/public/page_cache/)
+  config.action_controller.page_cache_directory = RAILS_ROOT+"/public/page_cache"
 end
 require 'country_select'
 ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|

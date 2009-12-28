@@ -1,7 +1,8 @@
 class UserSessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
-  #after_filter  :user_account_verification_status, :only => [:create]
+
+  caches_page :new
 
   #redirect back to login page..
   def show
