@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091225042545) do
+ActiveRecord::Schema.define(:version => 20091229162428) do
 
   create_table "addresses", :id => false, :force => true do |t|
     t.string   "id",             :limit => 36,  :null => false
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(:version => 20091225042545) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "time_sheets", :force => true do |t|
+    t.string   "user_id",             :limit => 36,                    :null => false
+    t.datetime "in_time"
+    t.datetime "out_time"
+    t.boolean  "is_late",                           :default => false
+    t.boolean  "manual_in_time",                    :default => false
+    t.text     "manual_in_time_note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "time_sheets", ["user_id"], :name => "index_time_sheets_on_user_id"
 
   create_table "user_details", :id => false, :force => true do |t|
     t.string   "id",                :limit => 36, :null => false

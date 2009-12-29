@@ -4,6 +4,8 @@ class UserDetail < ActiveRecord::Base
   belongs_to :user, :foreign_key => :user_id
   belongs_to :designation, :foreign_key => :designation_id
 
+  has_many :time_sheets
+  
   has_one :address
   has_one :phone
 

@@ -21,7 +21,6 @@ Scenario: I should be able to edit my profile
     And I press "Update"
     And I should see "Profile updated successfully"
 
-@focus
 Scenario Outline: I should be not able to edit my profile if the data in invalid
     Given I as a logged in user
     When I follow "My Profile"

@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :employee do |employee|
     employee.resource :dashboard
     employee.resource :user
+    employee.resources :time_sheets
   end
 
   map.resource :user_session

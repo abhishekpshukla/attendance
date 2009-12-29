@@ -1,0 +1,25 @@
+%h2
+  = flash[:notice]
+  - flash.discard
+
+%table{ :cellspacing => 0, :cellpadding => 0, :width => "100%"}
+  %thead
+    %tr
+      %td{ :width => "40%" }
+        %p
+          Date
+      %td{ :width => "30%" }
+        %p
+          In Time
+      %td{ :width => "30%" }
+        %p
+          Out Time
+  %tbody
+    - for time_sheet in @time_sheets
+      %tr
+        %td
+          = time_sheet.in_time.strftime("%d-%m-%Y")
+        %td
+          = time_sheet.in_time.strftime("%H:%M:%S") unless time_sheet.in_time.nil?
+        %td
+          = time_sheet.out_time.strftime("%H:%M:%S") unless time_sheet.out_time.nil?
