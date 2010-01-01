@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20091229162428) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "time_sheets", :force => true do |t|
-    t.string   "user_id",             :limit => 36,                    :null => false
+    t.string   "user_detail_id",      :limit => 36,                    :null => false
     t.datetime "in_time"
     t.datetime "out_time"
     t.boolean  "is_late",                           :default => false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20091229162428) do
     t.datetime "updated_at"
   end
 
-  add_index "time_sheets", ["user_id"], :name => "index_time_sheets_on_user_id"
+  add_index "time_sheets", ["user_detail_id"], :name => "index_time_sheets_on_user_detail_id"
 
   create_table "user_details", :id => false, :force => true do |t|
     t.string   "id",                :limit => 36, :null => false

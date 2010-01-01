@@ -1,7 +1,7 @@
 class CreateTimeSheets < ActiveRecord::Migration
   def self.up
     create_table :time_sheets do |t|
-      t.string    :user_id, :limit => 36, :null => false
+      t.string    :user_detail_id, :limit => 36, :null => false
       t.datetime  :in_time
       t.datetime  :out_time
       t.boolean   :is_late, :default => false
@@ -10,11 +10,11 @@ class CreateTimeSheets < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :time_sheets, :user_id
+    add_index :time_sheets, :user_detail_id
   end
 
   def self.down
     drop_table :time_sheets
-    remove_index :time_sheets, :user_id
+    remove_index :time_sheets, :user_detail_id
   end
 end

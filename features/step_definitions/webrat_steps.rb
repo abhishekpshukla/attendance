@@ -115,6 +115,14 @@ When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
   attach_file(field, path)
 end
 
+Then /^I should see the following:$/ do |time_sheets|
+  # table is a Cucumber::Ast::Table
+  time_sheets.hashes.each do |hash|
+    response.should contain(hash["Date"])
+    response.should contain(hash["In Time"])
+  end
+end
+
 Then /^I should see "([^\"]*)"$/ do |text|
   response.should contain(text)
 end

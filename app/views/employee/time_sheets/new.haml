@@ -29,30 +29,31 @@
     = Time.now.strftime("%d-%m-%Y")
   |
   = link_to "View all", employee_time_sheets_path
-    
-- form_for @time_sheet, :url => employee_time_sheets_path do |f|
+- form_for_helper(@time_sheet, @time_sheet.new_record?) do |f|
   %table{ :cellspacing => 0, :cellpadding => 0, :border => 1, :width => "100%"}
     %thead
       %tr
         %td{ :width => "50%"}
-          In Time
+          = f.label :in_time
         %td{ :width => "50%"}
-          Out Time
+          = f.label :out_time
     %tbody
       %tr
-        %td
-          %p
-            - if current_user.user_detail.time_sheets.find(:all, :conditions => ["DATE(in_time) = ?", Time.now.to_date]).blank?
+        - if @todays_time_sheet.blank?
+          %td{ :colspan => 2}
+            %p
               = f.text_field :in_time, {:class => "demo"}
               = image_tag "clock.png", {:id => "trigger-in", :style => "position:absolute;margin:4px 0 0 6px;"}
-        %td
-          %p
-            - if current_user.user_detail.time_sheets.find(:all, :conditions => ["DATE(in_time) = ?", Time.now.to_date]).blank?
+        - elsif @todays_time_sheet.out_time.blank?
+          %td
+            \ &nbsp;
+          %td
+            %p
               = f.text_field :out_time, {:class => "demo"}
               = image_tag "clock.png", {:id => "trigger-out", :style => "position:absolute;margin:4px 0 0 6px;"}
-    %tr
-      %td{ :colspan => "2" }
-        \ &nbsp;
-    %tr
-      %td{ :colspan => "2" }
-        = f.submit "Submit"
+      %tr
+        %td{ :colspan => "2" }
+          \ &nbsp;
+      %tr
+        %td{ :colspan => "2" }
+          = f.submit "Submit"

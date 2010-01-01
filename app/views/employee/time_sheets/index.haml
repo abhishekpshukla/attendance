@@ -21,8 +21,16 @@
     - for time_sheet in @time_sheets
       %tr
         %td
-          = time_sheet.in_time.strftime("%d-%m-%Y")
+          %p
+            = time_sheet.in_time.strftime("%d-%m-%Y") unless time_sheet.in_time.nil?
         %td
-          = time_sheet.in_time.strftime("%H:%M:%S") unless time_sheet.in_time.nil?
+          %p
+            = time_sheet.in_time.strftime("%H:%M:%S") unless time_sheet.in_time.nil?
         %td
-          = time_sheet.out_time.strftime("%H:%M:%S") unless time_sheet.out_time.nil?
+          %p
+            = time_sheet.out_time.strftime("%H:%M:%S") unless time_sheet.out_time.nil?
+        %td
+          %p
+            = get_total_duration(time_sheet)  unless time_sheet.out_time.nil?
+
+
