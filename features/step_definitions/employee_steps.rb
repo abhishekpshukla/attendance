@@ -39,3 +39,10 @@ Given /^I as a logged in user$/ do
   And "I should be logged in"
   And "I should see \"Welcome Abhishek Shukla\""
 end
+
+Then /^I should able to insert the out time$/ do
+  And "I fill in \"In Time\" with \"10:00:00\""
+  And "I press \"submit\""
+  And "I should see \"10:00:00\""
+  When "I follow \"In/out Time\""
+end
