@@ -29,8 +29,13 @@
     = Time.now.strftime("%d-%m-%Y")
   |
   = link_to "View all", employee_time_sheets_path
+- @todays_time_sheet          = current_user.user_detail.time_sheets.find(:first, :conditions => ["DATE(in_time) = ?", Time.now.to_date])
 - form_for_helper(@time_sheet, @time_sheet.new_record?) do |f|
   %table{ :cellspacing => 0, :cellpadding => 0, :border => 1, :width => "100%"}
+    %tr
+      %td{ :colspan => 2 }
+        %p
+          = f.error_messages
     %thead
       %tr
         %td{ :width => "50%"}

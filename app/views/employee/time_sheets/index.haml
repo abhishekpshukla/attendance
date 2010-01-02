@@ -32,5 +32,8 @@
         %td
           %p
             = get_total_duration(time_sheet)  unless time_sheet.out_time.nil?
-
+  %tr
+    %td{ :colspan => 4 }
+      %p
+        = will_paginate @time_sheets
 
